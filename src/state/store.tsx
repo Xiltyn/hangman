@@ -4,7 +4,7 @@ import todoReducer from "./reducers";
 
 const initialState = {
 	activeWord: '',
-	usedCharacters: [],
+	usedCharacters: ['b', 'j', 'p'],
 	remainingChances: 12
 };
 

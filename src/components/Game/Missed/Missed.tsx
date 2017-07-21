@@ -8,9 +8,9 @@ class Missed extends React.Component<any, any> {
 		};
 
 		let missedChars = this.props.usedCharacters.map((char, index) =>
-			<span className="missed-char">
+			<li className="missed-char">
 				{char}
-			</span>
+			</li>
 		);
 
 		return (
@@ -18,7 +18,9 @@ class Missed extends React.Component<any, any> {
 			 	<p style={toUppercase}>
 					You missed:
 				</p>
-				{missedChars}
+				<ul>
+					{missedChars}
+				</ul>
 			</div>
 		);
 	};

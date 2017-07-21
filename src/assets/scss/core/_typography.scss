@@ -11,13 +11,14 @@ p {
 
 .game-input {
 	color: $paleGrey;
-	font:  4.6rem/4.6rem $fontMain;
+	font:  3.8rem/3.8rem $fontMain;
 	text-transform: uppercase;
 }
 
 .missed-char {
 	color: $primary;
-	font: 3.8rem/14rem $fontMain;
+	font: 4.6rem/4.6rem $fontMain;
+	text-transform: uppercase;
 }
 
 
