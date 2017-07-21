@@ -1,0 +1,92 @@
+@import "../../core/variables";
+
+.blobs {
+	$left: 0rem;
+	$top: 0rem;
+	filter: url('#goo');
+	position: absolute;
+	height: 7.2rem;
+	width: 7.2rem;
+	top: 32rem;
+	left: 50%;
+	//margin-top: -3.6rem;
+	margin-left: -3.6rem;
+	cursor: pointer;
+	.blob {
+		position: absolute;
+		left: $left;
+		top: $top;
+		width: 7.2rem;
+		height: 7.2rem;
+		border-radius: 100%;
+		color: #fff;
+		font-size: 3.2rem;
+		line-height: 5rem;
+		text-align: center;
+		cursor: pointer;
+		background: #2b2b2b;
+		transition: all .35s cubic-bezier(.93, .29, .07, .7);
+		pointer-events: none;
+		img {
+			width: 75%;
+			height: auto;
+			margin-top: .4rem;
+			pointer-events: none;
+			user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			-webkit-user-select: none;
+		}
+	}
+	.isActive {
+		z-index: 300;
+		pointer-events: all;
+		-webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+		-moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+		&:nth-of-type(1) {
+			background-color: $baseBlue;
+		}
+		&:nth-of-type(2) {
+			background-color: $baseYellow;
+		}
+		&:nth-of-type(3) {
+			background-color: $baseRed;
+		}
+	}
+	svg {
+		pointer-events: none;
+	}
+}
+
+.isOpened {
+	$left: 0rem;
+	$top: 0rem;
+	.blob {
+		-webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+		pointer-events: all;
+	}
+	.blob:nth-of-type(1) {
+		left: $left - 10rem;
+		top: $top - 15rem;
+		&:hover {
+			background-color: $baseBlue;
+		}
+	}
+	.blob:nth-of-type(2) {
+		top: $top - 15rem;
+		left: $left + 0rem;
+		&:hover {
+			background-color: $baseYellow;
+		}
+	}
+	.blob:nth-of-type(3) {
+		top: $top - 15rem;
+		left: $left + 10rem;
+		&:hover {
+			background-color: $baseRed;
+		}
+	}
+}

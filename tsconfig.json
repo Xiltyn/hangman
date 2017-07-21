@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"experimentalDecorators": true,
+		"module": "commonjs",
+		"noImplicitAny": false,
+		"allowJs": true,
+		"outDir": "./build/",
+		"preserveConstEnums": true,
+		"removeComments": true,
+		"target": "ES5"
+	},
+	"files": [
+		"typings/index.d.ts"
+	],
+	"include": [
+		"./src/**/*.ts",
+		"./src/**/*.tsx"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
