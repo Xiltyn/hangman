@@ -3,15 +3,17 @@ import {connect} from "react-redux";
 import axios from 'axios';
 import {getNewWord} from "../state/actions";
 import Spinner from "./global/Spinner";
+import Game from "./Game/Game";
 
 class Content extends React.Component <any, any> {
 	public render() {
 
+
+		let currentView = !this.props.data ? <Spinner /> : <Game />;
+
 		return(
 			<div className="content-wrapper">
-				{
-					!this.props.data ? <Spinner /> : <h1> Hello World! </h1>
-				}
+				{currentView}
 			</div>
 		)
 	}
