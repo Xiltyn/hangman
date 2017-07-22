@@ -73,7 +73,8 @@ const initialState = {
 			alt: 'Left Foot',
 			className: 'left-foot'
 		}
-	]
+	],
+	gameOver: false
 };
 
 export default createStore(

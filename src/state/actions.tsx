@@ -1,7 +1,7 @@
-export function getNewWord(wordObject:object) {
+export function getNewWord(wordCharsArray:Array<object>) {
 	return {
 		type: "GET_NEW_WORD",
-		wordObject: wordObject
+		wordCharsArray: wordCharsArray
 	};
 }
 
@@ -11,10 +11,29 @@ export function countChances() {
 	};
 }
 
-export function recordMissedCharacters(missedCharacter:string) {
+export function recordMissedCharacters(missedCharacter:string, gameOver:boolean = false) {
 	return {
 		type: "RECORD_MISSED_CHARACTERS",
-		missedCharacter: missedCharacter
+		missedCharacter: missedCharacter,
+		gameOver: gameOver
 	}
 }
 
+export function resetGame() {
+	return {
+		type: "RESET_GAME"
+	};
+}
+
+export function revealPuzzle() {
+	return {
+		type: "REVEAL_PUZZLE"
+	};
+}
+
+export function updatePuzzle(valueToUpdate:string) {
+	return {
+		type: "UPDATE_PUZZLE",
+		valueToUpdate: valueToUpdate
+	};
+}

@@ -1,0 +1,19 @@
+.restart-btn {
+	position: absolute;
+	top: 53%;
+	left: 50%;
+	height: 60px;
+	width: 200px;
+	margin-left: -100px;
+	background: none;
+	border: dashed 2px $secondary;
+	border-radius: 48px;
+	color: $secondary;
+	font: 2.2rem/6rem $fontMain;
+	text-transform: uppercase;
+	transition: all .2s ease-out;
+	&:hover {
+		border: dashed 2px #ffce4a;
+		color: #ffce4a;
+	}
+}

@@ -1,13 +1,18 @@
 import * as React from 'react';
+import {connect} from 'react-redux';
 import './../../assets/scss/components/Game/Game';
 import Hangman from "./Hangman/Hangman";
 import Missed from "./Missed/Missed";
 import Puzzle from "./Puzzle/Puzzle";
+import GameOver from "./GameOver/GameOver";
 
-export default class Game extends React.Component<any, any> {
+class Game extends React.Component<any, any> {
 	public render() {
+		let isGameOver = this.props.gameOver ? <GameOver/> : null;
+
 		return (
 			<section className="wrapper">
+				{isGameOver}
 				<Hangman />
 				<Missed />
 				<Puzzle />
@@ -16,3 +21,11 @@ export default class Game extends React.Component<any, any> {
 		)
 	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		gameOver: state.gameOver
+	}
+};
+
+export default connect(mapStateToProps)(Game);

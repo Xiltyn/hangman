@@ -3,10 +3,6 @@ import {connect} from 'react-redux';
 
 class Missed extends React.Component<any, any> {
 	public render() {
-		let toUppercase = {
-			textTransform: 'uppercase'
-		};
-
 		let missedChars = this.props.usedCharacters.map((char, index) =>
 			<li className="missed-char" key={index}>
 				{char}
@@ -15,7 +11,7 @@ class Missed extends React.Component<any, any> {
 
 		return (
 			<div className="missed">
-			 	<p style={toUppercase}>
+			 	<p>
 					You missed:
 				</p>
 				<ul>

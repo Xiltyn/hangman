@@ -3,9 +3,9 @@ export class Character {
 	value:string;
 	isGuessed:boolean;
 
-	constructor(id:number, value:string) {
+	constructor(id:number, value:string, isGuessed:boolean = false) {
 		this.id = id;
 		this.value = value;
-		this.isGuessed = false;
+		this.isGuessed = isGuessed;
 	}
 }
