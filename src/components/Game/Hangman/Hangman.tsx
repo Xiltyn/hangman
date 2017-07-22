@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import {CSSTransitionGroup} from 'react-transition-group';
 
 class Hangman extends React.Component<any, any> {
 	private assets = {
@@ -21,7 +22,13 @@ class Hangman extends React.Component<any, any> {
 			<div className="hangman">
 				<img src={this.assets.bar} className="bar" alt="gibbet | gallows"/>
 				<div className="guy">
-					{hangmanParts}
+					<CSSTransitionGroup
+						transitionName="guyParts"
+						transitionEnterTimeout={300}
+						transitionLeaveTimeout={300}
+					>
+						{hangmanParts}
+					</CSSTransitionGroup>
 				</div>
 			</div>
 		);
