@@ -27,8 +27,11 @@ class Puzzle extends React.Component<any, any> {
 			let valueToUpdate = charToUpdate[0].value;
 
 			for (let i = 0; i < activeChars.length; i++) {
+				if (activeChars[i].value === '-') {
+					activeChars[i].isGuessed = true
+				}
 				if ( activeChars[i].id === charToUpdate.id) {
-						activeChars[i].isGuessed = true
+					activeChars[i].isGuessed = true
 				}
 			}
 
@@ -65,7 +68,7 @@ class Puzzle extends React.Component<any, any> {
 			<PuzzleElement
 				value={char.value}
 				key={index}
-				isGuessed={char.isGuessed}
+				isGuessed={char.value === '-' ? true : char.isGuessed}
 				isBlank={char.value === '' ? ' blank' : '' }
 			/>
 		);

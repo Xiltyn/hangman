@@ -4,7 +4,7 @@
 	position: relative;
 	margin: 5vh 10vw;
 	padding: 72px;
-	height: 900px;
+	height: 90vh;
 	width: 80vw;
 	border-radius: 16px;
 	box-sizing: border-box;
@@ -22,9 +22,9 @@
 		background-color: $primary;
 	}
 	.puzzle {
-		position: relative;
-		margin-top: 616px;
-		width: 100%;
+		position: absolute;
+		bottom: 72px;
+		right: 72px;
 		height: 88px;
 		display: flex;
 		justify-content: flex-end;
@@ -166,5 +166,40 @@
 			text-align: center;
 		}
 		@import "./../global/restartButton";
+	}
+}
+@media screen and (max-width:1400px) {
+	.wrapper {
+		height: 95vh;
+		width: 90vw;
+		margin: 2.5vh 5vw;
+		.puzzle {
+			height: 80px;
+			&-element {
+				max-width: 72px;
+			}
+		}
+		.hangman {
+			transform: scale(.8);
+			top: 0;
+		}
+	}
+}
+
+@media screen and (max-width:1140px) {
+	.wrapper {
+		height: 95vh;
+		width: 95vw;
+		margin: 2.5vh 2.5vw;
+		.puzzle {
+			height: 72px;
+			&-element {
+				max-width: 64px;
+			}
+		}
+		.hangman {
+			transform: scale(.7);
+			top: -44px;
+		}
 	}
 }

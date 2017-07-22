@@ -6,8 +6,13 @@
 html {
 	font-size: 62.5%;
 	overflow: hidden;
+	@media screen and (max-width: 1400px) {
+		font-size: 57%;
+	}
+	@media screen and (max-width: 1140px) {
+		font-size: 52%;
+	}
 }
-
 .content-wrapper {
 	width: 100vw;
 	height: 100vh;

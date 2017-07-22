@@ -27,15 +27,22 @@ class GameOver extends React.Component<any, any> {
 		return (
 			<div className="game-over">
 				<h1 className="game-over-text">
-					Game Over
+					{this.props.gameOver && this.props.usedChances < 11 ? 'You Won!' : 'Game Over' }
 				</h1>
 				<button className="restart-btn" onClick={this._handleClick}>
-					New Word
+					{this.props.gameOver && this.props.usedChances < 11 ? 'Again' : 'New Word' }
 				</button>
 			</div>
 		);
 	};
 }
+
+const mapStateToProps = (state) => {
+	return {
+		gameOver: state.gameOver,
+		usedChances: state.usedChances
+	}
+};
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -50,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 };
 
-export default connect (null, mapDispatchToProps)(GameOver)
+export default connect (mapStateToProps, mapDispatchToProps)(GameOver)
