@@ -6,10 +6,16 @@ const reducers = (state, action) => {
 				activeWord: action.wordObject
 			};
 			break;
-		case "DECREASE_CHANCES":
+		case "COUNT_CHANCES":
 			state = {
 				...state,
-				remainingChances: state.remainingChances === 0 ? 12 : state.remainingChances - 1
+				usedChances: state.usedChances === 12 ? 0 : state.usedChances + 1
+			};
+			break;
+		case "RECORD_MISSED_CHARACTERS":
+			state = {
+				...state,
+				usedCharacters: [...state.usedCharacters, action.missedCharacter]
 			};
 			break;
 	}

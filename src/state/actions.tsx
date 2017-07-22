@@ -5,10 +5,16 @@ export function getNewWord(wordObject:object) {
 	};
 }
 
-export function deacreaseChances() {
+export function countChances() {
 	return {
-		type: "DECREASE_CHANCES"
+		type: "COUNT_CHANCES"
 	};
 }
 
+export function recordMissedCharacters(missedCharacter:string) {
+	return {
+		type: "RECORD_MISSED_CHARACTERS",
+		missedCharacter: missedCharacter
+	}
+}
 

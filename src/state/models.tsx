@@ -1,13 +1,11 @@
-export default class Category {
+export class Character {
 	id:number;
-	name:string;
-	imgName:string;
-	description:string;
+	value:string;
+	isGuessed:boolean;
 
-	constructor(id, name, imgName, description) {
+	constructor(id:number, value:string) {
 		this.id = id;
-		this.name = name;
-		this.imgName = imgName;
-		this.description = description;
+		this.value = value;
+		this.isGuessed = false;
 	}
 }

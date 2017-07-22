@@ -8,7 +8,7 @@ class Missed extends React.Component<any, any> {
 		};
 
 		let missedChars = this.props.usedCharacters.map((char, index) =>
-			<li className="missed-char">
+			<li className="missed-char" key={index}>
 				{char}
 			</li>
 		);
