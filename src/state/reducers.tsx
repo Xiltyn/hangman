@@ -17,8 +17,13 @@ const reducers = (state, action) => {
 		case "RECORD_MISSED_CHARACTERS":
 			state = {
 				...state,
-				usedCharacters: [...state.usedCharacters, action.missedCharacter],
-				gameOver: action.gameOver || false
+				usedCharacters: [...state.usedCharacters, action.missedCharacter]
+			};
+			break;
+		case "GAME_OVER":
+			state = {
+				...state,
+				gameOver: true
 			};
 			break;
 		case "RESET_GAME":
@@ -26,11 +31,12 @@ const reducers = (state, action) => {
 				activeWord: state.activeWord,
 				usedChances: 0,
 				usedCharacters: [],
-				gameSteps: state.gameSteps
+				gameSteps: state.gameSteps,
+				gameOver: false
 			};
 			break;
 		case "REVEAL_PUZZLE":
-			for (let i = 0; i > state.activeWord.length; i++) {
+			for (let i = 0; i < state.activeWord.length; i++) {
 				state.activeWord[i].isGuessed = true
 			}
 			break;

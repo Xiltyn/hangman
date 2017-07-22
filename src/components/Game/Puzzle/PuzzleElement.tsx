@@ -8,7 +8,7 @@ export default class PuzzleElement extends React.Component<any, any> {
 			<input
 				type="text"
 				value={this.props.isGuessed ? this.props.value : ''}
-				className={"puzzle-element game-input" + isActiveClass}/>
+				className={"puzzle-element game-input" + isActiveClass + this.props.isBlank}/>
 		);
 	};
 };

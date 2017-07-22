@@ -1,13 +1,12 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import PuzzleElement from "./PuzzleElement";
-import {countChances, recordMissedCharacters, revealPuzzle, updatePuzzle} from "../../../state/actions";
-import {Character} from "../../../state/models";
+import {countChances, gameOver, recordMissedCharacters, revealPuzzle, updatePuzzle} from "../../../state/actions";
 
 class Puzzle extends React.Component<any, any> {
 	protected monitorGameStatus = () => {
-		if (this.props.usedChances === 11 || this.props.activeWord.every(elem => elem.isGuessed === true)) {
-			this.props.recordMissedCharacters(null, true)
+		if (this.props.activeWord.every(elem => elem.isGuessed === true)) {
+			this.props.gameOver()
 		}
 	};
 
@@ -15,9 +14,12 @@ class Puzzle extends React.Component<any, any> {
 		let availableChars = this.props.activeWord.map((word, index) => word.value);
 		let activeChars = this.props.activeWord;
 
-		if (this.props.gameOver === true) {
+		if (this.props.usedChances === 10) {
+			this.props.gameOver()
 			this.props.revealPuzzle();
 			this.props.countChances();
+			this.forceUpdate()
+
 
 		} else if (availableChars.indexOf( String.fromCharCode( event.which ) ) > -1 ) {
 			let matchedChar = String.fromCharCode( event.which );
@@ -43,12 +45,28 @@ class Puzzle extends React.Component<any, any> {
 	};
 
 	public render() {
+		let constPuzzleElement = (maxNum:number) => {
+			let activeChars = this.props.activeWord;
+			let result = [];
+			let blanksNumber = maxNum - activeChars.length;
 
-		let puzzleElements = this.props.activeWord.map((char, index) =>
+			for (let i = 0; i < blanksNumber; i++) {
+				result = [...result, {id: activeChars.length + 1, value: ''}]
+			}
+
+			for (let i = 0; i < activeChars.length; i++) {
+				result = [...result, activeChars[i]]
+			}
+
+			return result;
+		};
+
+		let puzzleElements = constPuzzleElement(11).map((char, index) =>
 			<PuzzleElement
 				value={char.value}
 				key={index}
 				isGuessed={char.isGuessed}
+				isBlank={char.value === '' ? ' blank' : '' }
 			/>
 		);
 
@@ -95,6 +113,10 @@ const mapDispatchToProps = (dispatch) => {
 		updatePuzzle: (valueToUpdate:string) =>
 			dispatch(
 				updatePuzzle(valueToUpdate)
+			),
+		gameOver: () =>
+			dispatch(
+				gameOver()
 			)
 	}
 };

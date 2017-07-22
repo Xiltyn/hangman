@@ -19,6 +19,12 @@ export function recordMissedCharacters(missedCharacter:string, gameOver:boolean 
 	}
 }
 
+export function gameOver() {
+	return {
+		type: "GAME_OVER"
+	};
+}
+
 export function resetGame() {
 	return {
 		type: "RESET_GAME"

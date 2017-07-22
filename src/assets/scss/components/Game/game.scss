@@ -30,6 +30,7 @@
 		justify-content: flex-end;
 		z-index: 50;
 		&-element {
+			flex-wrap: wrap;
 			max-width: 80px;
 			margin: 0 4px;
 			border: none;
@@ -41,6 +42,9 @@
 			&--inactive {
 				color: $darkGrey;
 			}
+		}
+		.blank {
+			background-color: $baseGrey;
 		}
 	}
 	.missed {
